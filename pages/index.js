@@ -1,14 +1,14 @@
-import Head from "next/head";
-import Image from "next/image";
 import Layout from "../components/Layout";
-import styles from "../styles/Home.module.css";
+import ProductItem from "../components/ProductItem";
+import data from "../utils/data";
 
 export default function Home() {
   return (
-    <Layout title="홈페이지">
-      <div className="  ">
-        <h1 className="text-4xl font-bold">Tailwind Css</h1>
-        <p>웹서버프로그래밍 송채연</p>
+    <Layout title="Home">
+      <div className="grid gird-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 2xl:grid-cols-6">
+        {data.products.map((product) => (
+          <ProductItem product={product} key={product.slug} />
+        ))}
       </div>
     </Layout>
   );
